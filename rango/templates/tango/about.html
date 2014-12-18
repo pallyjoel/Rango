@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+{% load staticfiles %} <!--  New line  -->
+<html>
+
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        <h1>Rango says...</h1>
+        About our Site <strong>{{ boldmessage }}</strong>
+        <br /><a href="/tango/">Home</a><br />
+        <img alt="Picture of Sunset" src="{% static "images/sunset.jpg" %}"/> <!--  New line -->
+    </body>
+
+</html>

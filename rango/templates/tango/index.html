@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+{% load staticfiles %} <!--  New line  -->
 <html>
 
     <head>
@@ -6,9 +8,32 @@
     </head>
 
     <body>
-        <h1>Rango says...</h1>
-        hello world! <strong>{{ boldmessage }}</strong><br />
-        <a href="/tango/about/">About</a><br />
+		<h1>Rango says...hello world!</h1>
+		<h2>Categories</h2>
+		{% if categories %}
+			<ul>
+				{% for category in categories %}
+				<li><a href="/tango/category/{{ category.slug }}">{{ category.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>There are no categories present</strong>
+		{% endif %}
+		
+		<h2>Pages</h2>
+		{% if pages %}
+			<ul>
+				{% for page in pages %}
+				<li><a href="{{ page.url }}">{{ page.title }}</a>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>There are no pages present</strong>
+		{% endif %}
+		
+		<a href="/tango/add_category/">Add a New Category</a>
+		<br />
+		<a href="/tango/about/">About</a>
     </body>
 
 </html>
